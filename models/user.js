@@ -21,7 +21,6 @@ const userSchema = Schema({
 });
 
 userSchema.method('toJSON', function () {
-    console.log("Almenos entro");
     const { __v, _id, password, ...data } = this.toObject();
     data.uid = _id;
     return data;

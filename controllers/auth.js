@@ -30,7 +30,7 @@ const crearUsuario = async (req, res = response) => {
 
         res.json({
             ok: true,
-            Usuario: user,
+            usuario: user,
             token
         });
     } catch (error) {
@@ -53,7 +53,7 @@ const login = async (req, res) => {
         });
 
         const comparePass = bcrypt.compareSync(password, usuarioDB.password);
-        if (!comparePass) return res.json({
+        if (!comparePass) return res.status(404).json({
             ok: false,
             msg: 'Password incorrecto'
         });
